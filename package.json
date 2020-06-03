@@ -1,0 +1,7 @@
+{
+  "name": "xdaniils-recursify",
+  "version": "1.0.0",
+  "description": "simulates behaviour of TCO",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}
