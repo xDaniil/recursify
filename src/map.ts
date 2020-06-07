@@ -1,6 +1,7 @@
-import recursify from "./recursify"
+import recursify from "./recursify";
+import { Index, Callback } from "./interfaces/map-interface"
 
-const arrayCall = (index, callback) => (arr) => {
+const arrayCall = (index: Index, callback: Callback) => (arr: any[]) => {
   let { increment, value } = index;
   let copy = arr;
   let elem = callback(arr[value()])
@@ -9,18 +10,18 @@ const arrayCall = (index, callback) => (arr) => {
   return copy;
 }
 
-const indexClosure = () => {
-  let index = 0;
-  const increment = () => index = index + 1;
+const indexClosure = (): Index => {
+  let index: number = 0;
+  const increment = (): number => index = index + 1;
   return {
     increment: () => increment(),
     value: () => index
   }
 }
 
-const endCondition = (index) => (arr) => index.value() === arr.length;
+const endCondition = (index: Index) => (arr: any[]) => index.value() === arr.length;
 
-const map = (arr, callback) => {
+const map = (arr: any[], callback: Callback) => {
   const index = indexClosure();
   return recursify(arr, arrayCall(index, callback), endCondition(index))
 }
