@@ -18,12 +18,8 @@ const indexClosure = () => {
   }
 }
 
-const endCondition = (index) => (arr) => {
-  let bool = index.value() === arr.length;
-  if (bool) console.timeEnd();
-  return bool
-};
-console.time()
+const endCondition = (index) => (arr) => index.value() === arr.length;
+
 const map = (arr, callback) => {
   const index = indexClosure();
   return recursify(arr, arrayCall(index, callback), endCondition(index))
