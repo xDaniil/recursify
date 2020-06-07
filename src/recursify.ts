@@ -15,34 +15,3 @@ const compose = (recursing: Function) => (initialValue: any, recursed: (val: typ
 let recursify = compose(recursing);
 
 export default recursify;
-
-let a = x => x = x + 1;
-let b = x => x > 10000;
-
-const test1 = () => {
-  console.time('1');
-  recursify(0, a, b);
-  console.timeEnd('1')
-}
-
-const test2 = () => {
-  console.time('2');
-  const closure = (x = 0) => {
-    if (x > 10000) return console.log(x);
-    return closure(x + 1);
-  }
-  closure();
-  console.timeEnd('2')
-}
-
-const test3 = () => {
-  console.time('3');
-  for (let i = 0; i < 10002; i++) {
-    if (i === 10001) console.log(i)
-  }
-  console.timeEnd('3')
-}
-
-test1();
-test2();
-test3();

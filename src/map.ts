@@ -29,15 +29,4 @@ const map = (arr, callback) => {
   return recursify(arr, arrayCall(index, callback), endCondition(index))
 }
 
-const foo = x => x * 3
-
-map([1,2,3,4,5,6,7,8,9,0,-2], foo)
-
-const a = () => {
-  console.time();
-  let b = [1,2,3,4,5,6,7,8,9,0,-2]
-  b.map(el => el * 3);
-  console.timeEnd()
-}
-
-a()
+export default map;
