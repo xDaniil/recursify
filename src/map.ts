@@ -4,7 +4,7 @@ import { Index, Callback } from "./interfaces/map-interface"
 const arrayCall = (index: Index, callback: Callback) => (arr: any[]) => {
   let { increment, value } = index;
   let copy = arr;
-  let elem = callback(arr[value()])
+  let elem = callback(arr[value()]);
   copy[value()] = elem;
   if (value() < arr.length) increment();
   return copy;
@@ -23,7 +23,7 @@ const endCondition = (index: Index) => (arr: any[]) => index.value() === arr.len
 
 const map = (arr: any[], callback: Callback) => {
   const index = indexClosure();
-  return recursify(arr, arrayCall(index, callback), endCondition(index))
+  return recursify(arr, arrayCall(index, callback), endCondition(index));
 }
 
 export default map;

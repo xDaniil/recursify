@@ -4,5 +4,5 @@ export interface Index {
 }
 
 export interface Callback {
-  (element: any): void;
+  (element: any): any;
 }

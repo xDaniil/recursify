@@ -1,5 +1,5 @@
 const recursing = (initialValue: any, recursed: (val: typeof initialValue) => typeof initialValue, endCondition) => { 
-  console.time()
+  console.log(initialValue);
   if (endCondition(initialValue)) return console.log(initialValue);
   return () => recursing(recursed(initialValue), recursed, endCondition);
 }
