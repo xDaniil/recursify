@@ -31,13 +31,3 @@ const asyncMap = (arr: any[], callback: Callback) => {
 }
 
 export default asyncMap;
-
-const a = () => {
-  setTimeout(() => new Promise((resolve, reject) => {
-    resolve(Math.floor(Math.random() * 100));
-  }), 0)
-}
-
-const b = x => x * 3
-
-asyncMap([a, a, a, a], b)
